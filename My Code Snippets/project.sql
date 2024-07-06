@@ -1,17 +1,17 @@
 --what are the top-paying jobs for my role?
 
-SELECT
+SELECT TOP (10)
 	CONVERT(DATE,[job_posted_date]) AS date_posted,
 	[job_id],
-	[job_title_short],
+	[job_title],
 	[job_schedule_type],
-	[job_work_from_home],
+	[company_dim].[name],
 	[job_country],
 	[job_location],
 	[salary_year_avg]
 FROM [dbo].[job_postings_fact]
-WHERE [job_work_from_home] = 1
-AND [job_location] = 'Anywhere'
+LEFT JOIN company_dim ON job_postings_fact.company_id = company_dim.company_id
+WHERE [job_location] = 'Anywhere'
 AND [job_title_short] = 'Data Analyst'
 AND [salary_year_avg] IS NOT NULL
 ORDER BY [salary_year_avg] DESC
@@ -19,28 +19,31 @@ ORDER BY [salary_year_avg] DESC
 
 --what are the skills required for these top-paying roles?
 
-WITH skill_jobs AS(
-SELECT
-	[job_postings_fact].[job_id],
-	[skills_job_dim].skill_id,
-	[job_title_short],
-	[salary_year_avg] 
+WITH skill_top_jobs AS(
+SELECT TOP (10)
+	CONVERT(DATE,[job_posted_date]) AS date_posted,
+	[job_id],
+	[job_title],
+	[company_dim].[name],
+	[salary_year_avg]
 FROM [dbo].[job_postings_fact]
-LEFT JOIN [dbo].[skills_job_dim] ON [dbo].[skills_job_dim].job_id = [dbo].[job_postings_fact].job_id
-WHERE [job_work_from_home] = 1
-AND [job_location] = 'Anywhere'
+LEFT JOIN company_dim ON job_postings_fact.company_id = company_dim.company_id
+WHERE [job_location] = 'Anywhere'
 AND [job_title_short] = 'Data Analyst'
 AND [salary_year_avg] IS NOT NULL
+ORDER BY [salary_year_avg] DESC
 )
 SELECT 
-	job_id,
+	skill_top_jobs.job_id,
 	skills_dim.skill_id,
-	job_title_short,
+	job_title,
 	skills,
+	name,
 	salary_year_avg
-FROM skill_jobs
-LEFT JOIN [dbo].[skills_dim] ON [dbo].[skills_dim].skill_id = skill_jobs.skill_id
-ORDER BY skill_jobs.salary_year_avg DESC
+FROM skill_top_jobs
+INNER JOIN [dbo].[skills_job_dim] ON [dbo].[skills_job_dim].job_id = skill_top_jobs.job_id
+LEFT JOIN [dbo].[skills_dim] ON [dbo].[skills_dim].skill_id = [skills_job_dim].skill_id
+ORDER BY skill_top_jobs.salary_year_avg DESC
 ;
 
 --what are the most in-demand skills for my role?
@@ -48,7 +51,7 @@ ORDER BY skill_jobs.salary_year_avg DESC
 WITH skill_jobs AS(
 SELECT
 	[dbo].[job_postings_fact].[job_id],
-	[dbo].[skills_job_dim].skill_id,
+	[dbo].[skills_job_dim].skill_id,   
 	[job_title_short],
 	[salary_year_avg] 
 FROM [dbo].[job_postings_fact]
