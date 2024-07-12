@@ -107,7 +107,7 @@ ORDER BY skill_top_jobs.salary_year_avg DESC
 - **Java** is also sought after with a count of 3.
 
 
-![Skills demanded for top paying roles](Images\SKILLS_2024-07-12_11-54-04.png)
+![Skills demanded for top paying roles](/Images/SKILLS_2024-07-12_11-54-04.png)
 *Bar graph visualising the skills needed for the top 10 paying salaries for data scientist role*
 
 ## 3. The Requried Skills For Data Scientist Jobs
