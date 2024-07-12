@@ -19,6 +19,7 @@ ORDER BY [salary_year_avg] DESC
 
 
 
+
 --Q2: what are the skills required for these top-paying roles?
 
 WITH skill_top_jobs AS(
@@ -52,31 +53,27 @@ ORDER BY skill_top_jobs.salary_year_avg DESC
 
 --Q3: what are the most in-demand skills for my role?
 
-WITH skill_jobs AS(
-SELECT
-	[dbo].[job_postings_fact].[job_id],
-	[dbo].[skills_job_dim].skill_id,   
-	[job_title_short],
-	[salary_year_avg] 
+SELECT TOP(5)
+	skills,
+	COUNT(*) AS total_skill_count
 FROM [dbo].[job_postings_fact]
 LEFT JOIN [dbo].[skills_job_dim] ON [dbo].[skills_job_dim].job_id = [dbo].[job_postings_fact].job_id
+LEFT JOIN [dbo].[skills_dim] ON [dbo].[skills_dim].skill_id = [skills_job_dim].skill_id
 WHERE [job_work_from_home] = 1
 AND [job_title_short] = 'Data Scientist'
-)
-SELECT TOP (5)
-	skills,
-	COUNT(*) AS total_skill_count	
-FROM skill_jobs
-LEFT JOIN [dbo].[skills_dim] ON [dbo].[skills_dim].skill_id = skill_jobs.skill_id
 GROUP BY skills
 ORDER BY total_skill_count DESC
 ;
 
 
 
+
 --Q4: what are the top skills based on salary for my role?
 
-WITH skill_jobs AS(
+SELECT TOP (15)
+	skills,
+	ROUND(AVG([salary_year_avg]),0) AS avg_salary 
+FROM (
 SELECT
 	[dbo].[job_postings_fact].[job_id],
 	[dbo].[skills_job_dim].skill_id,
@@ -86,16 +83,14 @@ FROM [dbo].[job_postings_fact]
 LEFT JOIN [dbo].[skills_job_dim] ON [dbo].[skills_job_dim].job_id = [dbo].[job_postings_fact].job_id
 WHERE [job_work_from_home] = 1
 AND [job_title_short] = 'Data Scientist'
-)
-SELECT TOP (15)
-	skills,
-	ROUND(AVG([salary_year_avg]),0) AS avg_salary 
-FROM skill_jobs
+) AS skill_jobs
+
 LEFT JOIN [dbo].[skills_dim] ON [dbo].[skills_dim].skill_id = skill_jobs.skill_id
 WHERE Skills IS NOT NULL
 GROUP BY skills
 ORDER BY avg_salary DESC
 ;
+
 
 
 
@@ -113,7 +108,7 @@ WHERE [job_work_from_home] = 1
 AND [salary_year_avg] IS NOT NULL
 AND [job_title_short] = 'Data Scientist'
 )
-SELECT TOP(25)
+SELECT TOP(20)
 	skills,
 	COUNT(*) AS total_skill_count,
 	ROUND(AVG([salary_year_avg]),0) AS avg_salary 
