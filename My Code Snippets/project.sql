@@ -70,7 +70,7 @@ ORDER BY total_skill_count DESC
 
 --Q4: what are the top skills based on salary for my role?
 
-SELECT TOP (15)
+SELECT TOP (10)
 	skills,
 	ROUND(AVG([salary_year_avg]),0) AS avg_salary 
 FROM (
@@ -119,5 +119,4 @@ GROUP BY skills
 HAVING COUNT(*) > 10
 ORDER BY avg_salary DESC,
 total_skill_count DESC
-
 ;
