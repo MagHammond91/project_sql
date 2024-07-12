@@ -1,7 +1,8 @@
 # INTRODUCTION
 This project focuses on data scientist roles in the data job market while exploring the top-paying jobs, in-demand skills, and where high demands meets high salary.
 
-- Check SQL queries here: [project.sql](C:\SQL_PROJECT\project\My Code Snippets\project.sql)
+- Check SQL queries here: [project.sql](/My%20Code%20Snippets/project.sql)
+
 # BACKGROUND
 Driven by my personal quest to transition into a data scientist role, this project was born from a desire to identify top-paying and in-demand skills, streamlining my own path to find optimal opportunities. 
 
