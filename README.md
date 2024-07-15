@@ -58,7 +58,7 @@ ORDER BY [salary_year_avg] DESC
 - **Significance:** This indicates a high earning potential in the field of data science, reflecting the value and demand for advanced data expertise.
 
 #### Diverse Employers
-- **Insight:** Eight companies, namely, Selby Jennings, Algo Capital Group, Demandbase, Teramind, Reddit, Stom4, Lawrence Harvey, and Storm5, offer high salaries.
+- **Insight:** Eight companies, namely, Selby Jennings, Algo Capital Group, Demandbase, Teramind, Reddit, Stom5, Walmart and Lawrence Harvey, offer high salaries.
 - **Significance:** This diversity of employers shows that high-paying data science roles are spread across different organizations, indicating a wide acceptance and need for data scientists in various industries.
 #### Job Title Variety
 - **Insight:** There is significant diversity in job titles, ranging from Data Scientist to Director of Data Science.
@@ -76,7 +76,7 @@ ORDER BY [salary_year_avg] DESC
 | 2023-05-26  | 551497  | Head of Data Science                                   | Full-time         | Demandbase      | United States| 324000         |
 | 2023-03-26  | 126218  | Director Level - Product Management - Data Science     | Full-time         | Teramind        | Sudan        | 320000         |
 | 2023-08-23  | 1161630 | Director of Data Science & Analytics                   | Full-time         | Reddit          | United States| 313000         |
-| 2023-01-21  | 129924  | Director of Data Science                               | Full-time         | Storm4          | United States| 300000         |
+| 2023-01-21  | 129924  | Director of Data Science                               | Full-time         | Storm5          | United States| 300000         |
 | 2023-08-06  | 226011  | Distinguished Data Scientist                           | Full-time         | Walmart         | United States| 300000         |
 | 2023-10-02  | 457991  | Head of Battery Data Science                           | Full-time         | Lawrence Harvey | Sudan        | 300000         |
 
