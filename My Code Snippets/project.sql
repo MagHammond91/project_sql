@@ -5,10 +5,9 @@ SELECT TOP (10)
 	[job_id],
 	[job_title],
 	[job_schedule_type],
-	[company_dim].[name],
-	[job_country],
-	[job_work_from_home],
-	[salary_year_avg]
+	[company_dim].[name] AS Company_name,
+	[job_country] AS Country,
+	[salary_year_avg] AS Average_Salary
 FROM [dbo].[job_postings_fact]
 LEFT JOIN company_dim ON job_postings_fact.company_id = company_dim.company_id
 WHERE [job_work_from_home] = 1

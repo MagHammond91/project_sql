@@ -40,10 +40,9 @@ SELECT TOP (10)
 	[job_id],
 	[job_title],
 	[job_schedule_type],
-	[company_dim].[name],
-	[job_country],
-	[job_work_from_home],
-	[salary_year_avg]
+	[company_dim].[name] AS Company_name,
+	[job_country] AS Country,
+	[salary_year_avg] AS Average_Salary
 FROM [dbo].[job_postings_fact]
 LEFT JOIN company_dim ON job_postings_fact.company_id = company_dim.company_id
 WHERE [job_work_from_home] = 1
@@ -67,6 +66,21 @@ ORDER BY [salary_year_avg] DESC
 #### Country and Job Schedule Type
 - **Insight:** Majority of the top-paying data scientist jobs are located in the United States and are full-time positions.
 - **Significance:** This trend points to the United States as a key market for high-paying data science roles, with full-time positions being the norm, indicating stability and long-term career opportunities.
+
+| date_posted | job_id  | job_title                                              | job_schedule_type | Company_name            | Country      | Average_Salary |
+|-------------|---------|--------------------------------------------------------|-------------------|-----------------|--------------|----------------|
+| 2023-08-16  | 40145   | Staff Data Scientist/Quant Researcher                  | Full-time         | Selby Jennings  | United States| 550000         |
+| 2023-09-01  | 1714768 | Staff Data Scientist - Business Analytics              | Full-time         | Selby Jennings  | United States| 525000         |
+| 2023-07-31  | 1131472 | Data Scientist                                         | Full-time         | Algo Capital Group | United States| 375000         |
+| 2023-07-12  | 1742633 | Head of Data Science                                   | Full-time         | Demandbase      | United States| 351500         |
+| 2023-05-26  | 551497  | Head of Data Science                                   | Full-time         | Demandbase      | United States| 324000         |
+| 2023-03-26  | 126218  | Director Level - Product Management - Data Science     | Full-time         | Teramind        | Sudan        | 320000         |
+| 2023-08-23  | 1161630 | Director of Data Science & Analytics                   | Full-time         | Reddit          | United States| 313000         |
+| 2023-01-21  | 129924  | Director of Data Science                               | Full-time         | Storm4          | United States| 300000         |
+| 2023-08-06  | 226011  | Distinguished Data Scientist                           | Full-time         | Walmart         | United States| 300000         |
+| 2023-10-02  | 457991  | Head of Battery Data Science                           | Full-time         | Lawrence Harvey | Sudan        | 300000         |
+
+*Top 10 high paying data scientist job in 2023 Table*
 
 
 ## 2. The Requried Skills For These Top-Paying Jobs
