@@ -14,7 +14,7 @@ This data is from my [SQL Course](https://lukebarousse.com/sql), which provides 
 2. What skills are required for these top-paying jobs?
 3. What skills are the most in demand for the data scientist?
 4. What skills are associated with higher salaries?
-5. What are the mosst optimal skills to learn?
+5. What are the most optimal skills to learn?
 
 
 # TOOLS I USED
@@ -32,7 +32,7 @@ To thoroughly explore the data scientist job market, I utilized several key tool
 For this project, I crafted each query to delve into various aspects of the data scientist job market. Here's my approach to each question:
 
 ## 1. Top Paying Data Scientist Jobs
-To pinpoint the highest-paying positions, I filtered data scientist roles by average annual salary,job schedule type,country and company name, emphasizing remote job opportunities. This query showcases the lucrative prospects in the field and it is limited to the top 10 roles.
+To pinpoint the highest-paying positions, I filtered data scientist roles by average annual salary, job schedule type, country and company name, emphasizing remote job opportunities. This query showcases the lucrative prospects in the field and it is limited to the top 10 roles.
 
 ```sql
 SELECT TOP (10)
@@ -83,7 +83,7 @@ ORDER BY [salary_year_avg] DESC
 *Top 10 high paying data scientist job in 2023 Table*
 
 
-## 2. The Requried Skills For These Top-Paying Jobs
+## 2. The Required Skills For These Top-Paying Jobs
 To know the required skilled for these top-paying jobs, I joined the job postings data to the skills data. This provided insight into what employers value for high-compensation roles.
 
 ```sql
@@ -116,7 +116,7 @@ ORDER BY skill_top_jobs.salary_year_avg DESC
 ```
 ### Here is the breakdown of the most demanded skills for the top 10 highest paying data scientist jobs in 2023 
 
-- **Python** is the most sought after skill and it is leading with a count of 5
+- **Python** is the most sought-after skill and it is leading with a count of 5
 - **SQL** is the second in line with a bold count of 4 
 - **Java** is also sought after with a count of 3.
 
@@ -124,8 +124,8 @@ ORDER BY skill_top_jobs.salary_year_avg DESC
 ![Skills demanded for top paying roles](/Images/SKILLS_2024-07-12_11-54-04.png)
 *Bar graph visualising the skills needed for the top 10 paying salaries for data scientist role*
 
-## 3. The Requried Skills For Data Scientist Jobs
-This query gives insight into the top five(5) skills a person needs to acquire as a data scientist.
+## 3. The Required Skills For Data Scientist Jobs
+This query gives insight into the top five (5) skills a person needs to acquire as a data scientist.
 
 ```sql
 SELECT TOP(5)
@@ -143,7 +143,7 @@ ORDER BY total_skill_count DESC
 
 ### Here is the breakdown of the most demanded skills for data scientist jobs in 2023 
 
-- **Python** and **SQL** remain as the fundamental for a data scientist role. This shows the need for stong foundational skills in data manipulation, analysis and machine learning.
+- **Python** and **SQL** remain as the fundamental for a data scientist role. This shows the need for strong foundational skills in data manipulation, analysis and machine learning.
 - Other skills like **R** for it's robust statistical analysis capabilities, **AWS** for scalable data storage, processing, and deployment and **Tableau** for data visualisation, are also essential for a data scientist role.
 
 
@@ -290,7 +290,7 @@ The optimal skills for data scientists include a variety of high-demand programm
 | tableau       | 219               | $146,970       |
 | nosql         | 31                | $146,110       |
 
-*The most optimal (Top 20) skill for data sacientist sorted by salary Table*
+*The most optimal (Top 20) skill for data scientist sorted by salary Table*
 
 
 
