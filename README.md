@@ -8,7 +8,7 @@ Driven by my personal quest to transition into a data scientist role, this proje
 
 This data is from my [SQL Course](https://lukebarousse.com/sql), which provides comprehensive insights on job titles, salaries, locations, and essential skills.
 
-### THE QUESTIONS I ANSWERED THROUGH MY SQL QUERIES WERE:
+### THE QUESTIONS I ANSWERED THROUGH MY SQL QUERIES ARE:
 
 1. What are the top-paying data scientist jobs?
 2. What skills are required for these top-paying jobs?
